@@ -10,7 +10,7 @@ const MnemonicScreen = ({ mnemonic }) => {
       {mnemonics.map((mnemonic, index) => {
         return (
           <View style={styles.mnemonicArea} key={index.toString()}>
-            <Text>{mnemonic}</Text>
+            <Text style={styles.mnemonicTxt}>{mnemonic}</Text>
           </View>
         );
       })}
@@ -36,6 +36,13 @@ const styles = StyleSheet.create({
     marginRight: 9,
     marginBottom: 10,
   },
+  mnemonicTxt : {
+    fontSize : 14,
+    fontStyle : "normal",
+    fontWeight : "400",
+    color : "#000000",
+    letterSpacing : -0.165
+  }
 });
 
 export default MnemonicScreen;
