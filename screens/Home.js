@@ -19,7 +19,6 @@ import {
 const { width, height } = Dimensions.get("window");
 
 const HomeScreen = ({ navigation }) => {
-  const [fontStyleIdx, setFontStyleIdx] = useState(0);
   let [fontsLoaded] = useFonts({
     TitilliumWeb_300Light,
     TitilliumWeb_400Regular,

@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
-
-const { width, height } = Dimensions.get("window");
 
 const MnemonicScreen = ({ mnemonic }) => {
   const [mnemonics, setMnemonics] = useState(mnemonic.split(" "));

@@ -12,7 +12,6 @@ const { width, height } = Dimensions.get("window");
 
 const MnemonicScreen = ({ route, navigation }) => {
   const { mnemonic, privateKey } = route.params;
-
   const [mnemonics, setMnemonics] = useState(mnemonic.split(" "));
   // The Mnemonic screen does not display any information related to the privateKey.
   // const [privateKeys, setPrivateKeys] = useState(privateKey);
@@ -25,12 +24,7 @@ const MnemonicScreen = ({ route, navigation }) => {
           style={styles.headerBackBtn}
         >
           <Text
-            style={{
-              color: "#007AFF",
-              fontSize: 17,
-              letterSpacing: -0.41,
-              fontStyle: "normal",
-            }}
+            style={styles.headerTxt}
           >
             Back
           </Text>
@@ -72,6 +66,12 @@ const MnemonicScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   headerBackBtn: {
     padding: 16,
+  },
+  headerTxt : {
+    color: "#007AFF",
+    fontSize: 17,
+    letterSpacing: -0.41,
+    fontStyle: "normal",
   },
   container: {
     width: width,
