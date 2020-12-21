@@ -16,6 +16,9 @@ import {
   TitilliumWeb_400Regular,
   TitilliumWeb_700Bold,
 } from "@expo-google-fonts/titillium-web";
+
+import MnemonicsAPIs from "../model/models";
+
 const { width, height } = Dimensions.get("window");
 
 const HomeScreen = ({ navigation }) => {
@@ -25,15 +28,33 @@ const HomeScreen = ({ navigation }) => {
     TitilliumWeb_700Bold,
   });
   const requestMnemonic = async () => {
+    // When the developer requests the mnemonic list repeatedly, use the component below
+    // let returnValue = await MnemonicsAPIs.mnemonics();
+    // if (response) {
+    //   navigation.navigate("Mnemonic", {mnemonic : returnValue.mnemonic, privateKey : returnValue.privateKey})
+    // } else {
+    //  Alert.alert(
+    //     "경고",
+    //     "Mnemonic 12 글자를 가져오는데 실패했습니다.",
+    //     { text: "OK" }
+    //   );
+    // }
+    // }
     try {
-      let response = await fetch ("https://api.hopae.app/v1/identities/mnemonic", {
-        method : "GET",
-        "Content-Type" : "application/json"
-      });
+      let response = await fetch(
+        "https://api.hopae.app/v1/identities/mnemonic",
+        {
+          method: "GET",
+          "Content-Type": "application/json",
+        }
+      );
 
       let json = await response.json();
       if (response.ok) {
-        navigation.navigate("Mnemonic", {mnemonic : json.mnemonic, privateKey : json.privateKey})
+        navigation.navigate("Mnemonic", {
+          mnemonic: json.mnemonic,
+          privateKey: json.privateKey,
+        });
       }
     } catch (err) {
       Alert.alert(
@@ -62,7 +83,7 @@ const HomeScreen = ({ navigation }) => {
         />
         <View style={styles.topContainer}>
           <Image
-            source={require("../assets/social.png")}
+            source={require("../assets/images/social.png")}
             resizeMode={"center"}
             style={styles.imageArea}
           />
